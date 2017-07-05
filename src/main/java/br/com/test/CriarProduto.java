@@ -14,11 +14,11 @@ public class CriarProduto {
 	public static void main(String[] args) {
 		
 				
-		EntityManager manager = new ConexaoBD().getEntityManager();
-		manager.getTransaction().begin();		
-		manager.persist(criarNovoProduto());
-		manager.getTransaction().commit();
-		manager.close();
+//		EntityManager manager = new ConexaoBD().getEntityManager();
+//		manager.getTransaction().begin();		
+//		manager.persist(criarNovoProduto());
+//		manager.getTransaction().commit();
+//		manager.close();
 		
 		
 	}
@@ -26,7 +26,7 @@ public class CriarProduto {
 	{
 		Produto produto = new Produto();
 		produto.setNome("Picanha Grill");
-		produto.setDescricao("Picanha argentina filé");
+		produto.setDescricao("Picanha argentina filï¿½");
 		produto.setCodigo("PICA");
 		produto.setPreco(65d);
 		produto.setQuantidade(1d);

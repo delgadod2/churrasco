@@ -1,15 +1,21 @@
 package br.com.dao;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+@EnableTransactionManagement
 public class ConexaoBD {
 
-	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("churrasco");
-
-	public EntityManager getEntityManager() {
-		return entityManagerFactory.createEntityManager();
+	@Bean
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+		return new LocalContainerEntityManagerFactoryBean();
 	}
-
+	@Bean
+	public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
+		return new JpaTransactionManager(emf);
+	}
 }
